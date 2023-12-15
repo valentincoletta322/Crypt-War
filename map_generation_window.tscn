@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://beijp4jpw3ogd"]
+
+[ext_resource type="Script" path="res://map_generation_window.gd" id="1_q0eht"]
+
+[node name="MapGenerationWindow" type="Window"]
+position = Vector2i(0, 36)
+script = ExtResource("1_q0eht")

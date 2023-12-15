@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://bexav2yld4fpw"]
+
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_ymc1d"]
+[ext_resource type="Texture2D" uid="uid://gi308iqyy1gq" path="res://assets/hand2.png" id="2_1j45o"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uf6no"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3lpn6"]
+atlas = ExtResource("2_1j45o")
+region = Rect2(0, 0, 421, 462)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jb363"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3lpn6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody3D" groups=["player"]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_ymc1d")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_uf6no")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+target_position = Vector3(0, 0, -1000)
+collision_mask = 3
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Weapon" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Weapon"]
+position = Vector2(775, 515)
+scale = Vector2(0.690618, 0.690618)
+sprite_frames = SubResource("SpriteFrames_jb363")
+animation = &"idle"
+autoplay = "idle"

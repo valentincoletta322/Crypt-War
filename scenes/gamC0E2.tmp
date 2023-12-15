@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw6fn5wjnbu8o"]
+
+[ext_resource type="Script" path="res://scenes/MapGeneration.gd" id="1_oyvrt"]
+
+[node name="GameMap" type="Node3D"]
+
+[node name="MapGeneration" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_oyvrt")

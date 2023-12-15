@@ -1,0 +1,9 @@
+res://scenes/game_scenario.tscn
+res://map_generation_window.gd
+res://scenes/player.tscn
+res://scenes/game_map.tscn
+res://scenes/box.tscn
+res://map_generation_window.tscn
+res://field.tscn
+res://scenes/player.gd
+res://scenes/MapGeneration.gd
